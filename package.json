@@ -1,12 +1,14 @@
 {
   "name": "synkro",
   "version": "0.0.0",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "electron": "ng build && electron electron/main.js",
+    "electron-package": "ng build --configuration production && electron-packager ./dist/synkro Synkro --platform=win32 --arch=x64 --out=release --overwrite"
   },
   "private": true,
   "dependencies": {
@@ -18,7 +20,10 @@
     "@angular/platform-browser": "^19.1.0",
     "@angular/platform-browser-dynamic": "^19.1.0",
     "@angular/router": "^19.1.0",
+    "@tailwindcss/postcss": "^4.0.9",
+    "postcss": "^8.5.3",
     "rxjs": "~7.8.0",
+    "tailwindcss": "^4.0.9",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
@@ -27,6 +32,8 @@
     "@angular/cli": "^19.1.5",
     "@angular/compiler-cli": "^19.1.0",
     "@types/jasmine": "~5.1.0",
+    "electron": "^34.3.0",
+    "electron-packager": "^17.1.2",
     "jasmine-core": "~5.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
